@@ -3,6 +3,7 @@
 const helpers = require('../helpers');
 const repos = require('../repository');
 const _ = require('lodash');
+const moment = require('moment');
 let logs = [];
 
 module.exports = {
@@ -20,6 +21,7 @@ setInterval(() => {
 }, 5000);
 
 function save(payload) {
+  payload = _.extend(payload, { createdAt: moment().valueOf() });
   return helpers.parser.parseLog(payload)
     .then((log) => {
       logs.push(log);

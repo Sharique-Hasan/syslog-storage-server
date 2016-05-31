@@ -18,6 +18,7 @@ function save(payload, callback) {
 function find(payload, callback) {
   let criteria = _.pick(payload, ['cat', 'event', 'action', 'ip']);
   let limit = +payload.num || 20;
+  let sort = { createdAt: -1 };
   if (payload.startTime) {
     criteria.time = { $gte: payload.startTime }
   }
@@ -26,9 +27,9 @@ function find(payload, callback) {
     criteria.time['$lte'] = payload.endTime;
   }
 
-  return db.find(criteria).projection({
+  return db.find(criteria).sort(sort).projection({
     time: 1, ip: 1, cat: 1, event: 1, action: 1, message: 1, _id: 0
-  }).sort({ time: 1 }).skip(0).limit(limit).exec(callback);
+  }).skip(0).limit(limit).exec(callback);
 }
 
 function stats(callback) {
