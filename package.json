@@ -1,0 +1,26 @@
+{
+  "name": "syslog-storage-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sharique-Hasan/syslog-storage-server.git"
+  },
+  "author": "Sharique Hasan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sharique-Hasan/syslog-storage-server/issues"
+  },
+  "homepage": "https://github.com/Sharique-Hasan/syslog-storage-server#readme",
+  "dependencies": {
+    "async": "^1.5.2",
+    "express": "^4.13.4",
+    "lodash": "^4.13.1",
+    "nedb": "^1.8.0",
+    "optimist": "^0.6.1"
+  }
+}
