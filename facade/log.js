@@ -12,6 +12,11 @@ module.exports = {
   stats
 };
 
+/*
+*
+* This is being used for batching purpose
+*
+* */
 setInterval(() => {
   let documents = _.clone(logs);
   logs = [];
@@ -31,6 +36,9 @@ function save(payload) {
 function find(params) {
   return new Promise((resolve) => {
     let caseInsensitive = ['cat', 'event', 'action'];
+    /*
+    * This is being used to create regex for case insensitive search terms
+    * */
     params = _.mapValues(params, (el, key) => {
       if(_.includes(caseInsensitive, key)) {
         return new RegExp(el, 'i');
